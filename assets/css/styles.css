@@ -1,1 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*Global Styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", "Alegreya", sans-serif;
+  background-color: #fff;
+  color: #000000;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: "Alegreya", serif;
+}
+
+/* Hero Section */
+
+#hero {
+  background-color: #ff8400;
+  padding: 60px 20px;
+  width: 100%;
+}
