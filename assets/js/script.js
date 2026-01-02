@@ -118,13 +118,13 @@
     const stopBtn = document.getElementById("stopBtn");
     const retryBtn = document.getElementById("retryBtn");
     const userInput = document.getElementById("userInput");
+    const heroButton = document.getElementById("hero-button");
 
     select.addEventListener("change", updateSampleText);
     startBtn.addEventListener("click", startTest);
     stopBtn.addEventListener("click", stopTest);
     retryBtn.addEventListener("click", retryTest);
 
-    // Optional: calculate WPM live as user types
     userInput.addEventListener("input", function () {
       if (startTime) {
         const now = Date.now();
@@ -134,7 +134,12 @@
       updateAccuracyFeedback();
     });
 
-    // Set initial text and level
+    // Show instructions modal on button click
+    heroButton.addEventListener("click", function () {
+      const modal = new bootstrap.Modal(document.getElementById('instructionsModal'));
+      modal.show();
+    });
+
     updateSampleText();
     updateAccuracyFeedback();
   });

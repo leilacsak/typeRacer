@@ -26,6 +26,12 @@ h1 {
   width: 100%;
 }
 
+#gotItBtn {
+  background-color: #ff8400;
+  color: #ffffff;
+  border: none;
+}
+
 /*Test Area*/
 
 #startBtn,
