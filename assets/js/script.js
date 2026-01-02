@@ -1,5 +1,4 @@
-
-  // Sample texts for each difficulty level
+// Sample texts for each difficulty level
   const sampleTexts = {
     easy: [
       "The quick brown fox jumps over the lazy dog.",
@@ -21,16 +20,28 @@
   let startTime = null;
   let timerInterval = null;
 
+  // Store the original sample text for reset
+  let originalSampleText = "";
+
   function getRandomSample(level) {
     const texts = sampleTexts[level] || sampleTexts.easy;
     return texts[Math.floor(Math.random() * texts.length)];
   }
 
+  // Function to set sample text and store original
+  function setSampleText(text) {
+    const sampleTextElem = document.getElementById("sampleText");
+    sampleTextElem.textContent = text;
+    originalSampleText = text;
+  }
+
   function updateSampleText() {
     const select = document.getElementById("difficultySelect");
     const sampleText = document.getElementById("sampleText");
-    sampleText.textContent = getRandomSample(select.value);
+    const newText = getRandomSample(select.value);
+    setSampleText(newText);
     document.getElementById("resultLevel").textContent = select.value.charAt(0).toUpperCase() + select.value.slice(1);
+    resetAccuracyFeedback();
   }
 
   function startTest() {
@@ -74,6 +85,33 @@
     document.getElementById("resultWpm").textContent = Math.round(wpm);
   }
 
+  // Function to update accuracy feedback directly in sampleText
+  function updateAccuracyFeedback() {
+    const sampleTextElem = document.getElementById("sampleText");
+    const sampleText = originalSampleText;
+    const userInput = document.getElementById("userInput").value;
+    let feedbackHtml = "";
+
+    for (let i = 0; i < sampleText.length; i++) {
+      if (i < userInput.length) {
+        if (userInput[i] === sampleText[i]) {
+          feedbackHtml += `<span style="background-color: #d4edda">${sampleText[i]}</span>`;
+        } else {
+          feedbackHtml += `<span style="background-color: #f8d7da">${sampleText[i]}</span>`;
+        }
+      } else {
+        feedbackHtml += `<span>${sampleText[i]}</span>`;
+      }
+    }
+    sampleTextElem.innerHTML = feedbackHtml;
+  }
+
+  // Reset sampleText highlight to original
+  function resetAccuracyFeedback() {
+    const sampleTextElem = document.getElementById("sampleText");
+    sampleTextElem.textContent = originalSampleText;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     const select = document.getElementById("difficultySelect");
     const startBtn = document.getElementById("startBtn");
@@ -93,8 +131,10 @@
         const elapsed = (now - startTime) / 1000;
         calculateWPM(elapsed);
       }
+      updateAccuracyFeedback();
     });
 
     // Set initial text and level
     updateSampleText();
+    updateAccuracyFeedback();
   });
