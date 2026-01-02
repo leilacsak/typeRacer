@@ -37,7 +37,6 @@
 
   function updateSampleText() {
     const select = document.getElementById("difficultySelect");
-    const sampleText = document.getElementById("sampleText");
     const newText = getRandomSample(select.value);
     setSampleText(newText);
     document.getElementById("resultLevel").textContent = select.value.charAt(0).toUpperCase() + select.value.slice(1);
@@ -45,6 +44,7 @@
   }
 
   function startTest() {
+    clearInterval(timerInterval);
     document.getElementById("userInput").value = "";
     startTime = Date.now();
     document.getElementById("resultTime").textContent = "0.00s";
