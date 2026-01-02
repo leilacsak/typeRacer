@@ -78,11 +78,38 @@
     document.getElementById("resultTime").textContent = elapsed.toFixed(2) + "s";
   }
 
+  // Store best WPM for each level in localStorage
+  function getBestWPM(level) {
+    return Number(localStorage.getItem(`bestWpm_${level}`)) || 0;
+  }
+
+  function setBestWPM(level, wpm) {
+    localStorage.setItem(`bestWpm_${level}`, wpm);
+  }
+
+  function updateBestResultsDisplay() {
+    const levels = ["easy", "medium", "hard"];
+    levels.forEach(level => {
+      const elem = document.getElementById(`bestWpm_${level}`);
+      if (elem) {
+        elem.textContent = getBestWPM(level);
+      }
+    });
+  }
+
+  // Modify calculateWPM to update best WPM
   function calculateWPM(elapsed) {
     const userInput = document.getElementById("userInput").value.trim();
     const wordCount = userInput.length > 0 ? userInput.split(/\s+/).length : 0;
     const wpm = elapsed > 0 ? (wordCount / elapsed) * 60 : 0;
     document.getElementById("resultWpm").textContent = Math.round(wpm);
+
+    // Update best WPM if this is a new record
+    const level = document.getElementById("difficultySelect").value;
+    if (wpm > getBestWPM(level)) {
+      setBestWPM(level, Math.round(wpm));
+      updateBestResultsDisplay();
+    }
   }
 
   // Function to update accuracy feedback directly in sampleText
@@ -142,4 +169,5 @@
 
     updateSampleText();
     updateAccuracyFeedback();
+    updateBestResultsDisplay();
   });
