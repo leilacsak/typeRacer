@@ -10,7 +10,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
-
     <title>Type Racer</title>
   </head>
   <body>
@@ -25,30 +24,27 @@
       </button>
     </header>
 
-    <!-- Test and Result Area -->
+    <!-- Main Area: Test & Results -->
     <section class="main-area">
-      <div class="container">
-        <div class="row">
+      <div class="container my-4">
+        <div class="row g-0 g-md-4">
           <!-- Test Area Column -->
           <div class="col-12 col-md-8 mb-4 mb-md-0">
-            <!-- Dropdown menu for selecting difficulty -->
             <div class="input-group mb-4">
-              <label class="input-group-text" for="difficultySelect"
-                >Select Difficulty</label
-              >
+              <label class="input-group-text" for="difficultySelect">
+                Select Difficulty
+              </label>
               <select class="form-select" id="difficultySelect">
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
               </select>
             </div>
-            <!-- Sample text to type -->
             <div class="mb-4">
               <p id="sampleText" class="border rounded p-3 bg-white">
                 The quick brown fox jumps over the lazy dog.
               </p>
             </div>
-            <!-- Text box for user input -->
             <div class="mb-4">
               <textarea
                 id="userInput"
@@ -57,7 +53,6 @@
                 placeholder="Click the Start button and begin typing here..."
               ></textarea>
             </div>
-            <!-- Control buttons -->
             <div class="mb-2 d-flex gap-2">
               <button id="startBtn" class="btn" type="button">Start</button>
               <button id="stopBtn" class="btn" type="button">Stop</button>
@@ -65,29 +60,23 @@
             </div>
           </div>
           <!-- Result Area Column -->
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <div class="p-3 bg-white rounded shadow-sm h-100">
-              <h2 class="h5 mb-3">Results</h2>
-              <ul class="list-group">
-                <li
-                  class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                  Level
-                  <span id="resultLevel" class="fw-bold"></span>
-                </li>
-                <li
-                  class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                  Time
-                  <span id="resultTime" class="fw-bold"></span>
-                </li>
-                <li
-                  class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                  WPM
-                  <span id="resultWpm" class="fw-bold"></span>
-                </li>
-              </ul>
+          <div id="resultArea" class="col-12 col-md-4 px-3 px-md-2 mx-0">
+            <div
+              class="p-3 d-flex flex-column justify-content-center align-items-center text-center h-100"
+            >
+              <h2 class="h2 mb-3">Results</h2>
+              <div>
+                <span class="fw-semibold">Level:</span>
+                <span id="resultLevel" class="fw-bold ms-2"></span>
+              </div>
+              <div>
+                <span class="fw-semibold">Time:</span>
+                <span id="resultTime" class="fw-bold ms-2"></span>
+              </div>
+              <div>
+                <span class="fw-semibold">WPM:</span>
+                <span id="resultWpm" class="fw-bold ms-2"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -99,7 +88,6 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-
     <script
       src="https://kit.fontawesome.com/f562a9a852.js"
       crossorigin="anonymous"

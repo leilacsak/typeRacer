@@ -41,3 +41,8 @@ h1 {
 }
 
 /* Result Area */
+#resultArea {
+  box-shadow: 0 0 5px #ff8400, 0 0 20px #ff8400;
+  border-radius: 5px;
+  height: fit-content;
+}
