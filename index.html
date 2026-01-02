@@ -16,7 +16,7 @@
   <body>
     <!-- Hero Section -->
     <header
-      class="d-flex flex-column justify-content-center align-items-center"
+      class="d-flex flex-column justify-content-center align-items-center mb-5"
       id="hero"
     >
       <h1 class="text-white mb-4 display-3 fw-bold text-center">TypeRacer</h1>
@@ -26,28 +26,53 @@
     </header>
 
     <!-- Test Area -->
-    <section class="test-area"></section>
+    <section class="test-area">
     <div class="container">
       <div class="row">
-        <!-- Test Area Column -->
         <div class="col-12 col-md-8 mb-4 mb-md-0">
-          <div class="p-3 bg-light rounded shadow-sm h-100">
-            <h2 class="h5 mb-3">Typing Test</h2>
+            <!-- Dropdown menu for selecting difficulty -->
+            <div class="input-group mb-4">
+              <label class="input-group-text" for="difficultySelect"
+                >Select Difficulty</label>
+              <select class="form-select" id="difficultySelect">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            <!-- Sample text to type -->
+            <div class="mb-4">
+              <p id="sampleText" class="border rounded p-3 bg-white">
+                The quick brown fox jumps over the lazy dog.
+              </p>
+            </div>
+            <!-- Text box for user input -->
+            <div class="mb-4">
+              <textarea
+                id="userInput"
+                class="form-control"
+                rows="3"
+                placeholder="Click the Start button and begin typing here..."
+              ></textarea>
+            </div>
+            <!-- Control buttons -->
+            <div class="mb-2 d-flex gap-2">
+              <button id="startBtn" class="btn" type="button">Start</button>
+              <button id="stopBtn" class="btn" type="button" >Stop</button>
+              <button id="retryBtn" class="btn" type="button" >Retry</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
     <!-- Result Area -->
     <section class="result-area">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-4">
-            <!-- Place your results content here -->
-            <div class="p-3 bg-white rounded shadow-sm h-100">
-              <h2 class="h5 mb-3">Results</h2>
-              <!-- Results UI goes here -->
-            </div>
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            
           </div>
         </div>
       </div>
