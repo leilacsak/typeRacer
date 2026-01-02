@@ -25,15 +25,17 @@
       </button>
     </header>
 
-    <!-- Test Area -->
-    <section class="test-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-8 mb-4 mb-md-0">
+    <!-- Test and Result Area -->
+    <section class="main-area">
+      <div class="container">
+        <div class="row">
+          <!-- Test Area Column -->
+          <div class="col-12 col-md-8 mb-4 mb-md-0">
             <!-- Dropdown menu for selecting difficulty -->
             <div class="input-group mb-4">
               <label class="input-group-text" for="difficultySelect"
-                >Select Difficulty</label>
+                >Select Difficulty</label
+              >
               <select class="form-select" id="difficultySelect">
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
@@ -58,32 +60,30 @@
             <!-- Control buttons -->
             <div class="mb-2 d-flex gap-2">
               <button id="startBtn" class="btn" type="button">Start</button>
-              <button id="stopBtn" class="btn" type="button" >Stop</button>
-              <button id="retryBtn" class="btn" type="button" >Retry</button>
+              <button id="stopBtn" class="btn" type="button">Stop</button>
+              <button id="retryBtn" class="btn" type="button">Retry</button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- Result Area -->
-    <section class="result-area">
-      <div class="container">
-        <div class="row">
+          <!-- Result Area Column -->
           <div class="col-12 col-md-4 mb-4 mb-md-0">
             <div class="p-3 bg-white rounded shadow-sm h-100">
               <h2 class="h5 mb-3">Results</h2>
               <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
                   Level
                   <span id="resultLevel" class="fw-bold"></span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
                   Time
                   <span id="resultTime" class="fw-bold"></span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
                   WPM
                   <span id="resultWpm" class="fw-bold"></span>
                 </li>
